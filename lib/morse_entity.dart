@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class MorseEntity extends StatefulWidget {
   const MorseEntity({Key? key}) : super(key: key);
@@ -102,6 +103,7 @@ class _McConverterState extends State<MorseEntity> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
               TextField(
                 onChanged: (value) {
                   setState(() {
@@ -126,11 +128,20 @@ class _McConverterState extends State<MorseEntity> {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.0),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.grey,
                       width: 1.0,
                     ),
                   ),
+                ),
+              ),
+
+              Opacity(
+                opacity: 0.1,
+                child: Lottie.asset(
+                  'assets/128791-hybrid-logo.json',
+                  width: 250,
+                  height: 250,
                 ),
               ),
 
@@ -141,7 +152,10 @@ class _McConverterState extends State<MorseEntity> {
                 ),
 
                 onPressed: convertMorseToEnglish,
-                child: const Text('Convert'),),
+                child: const Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 32),
+                  child: Text('Convert'),
+                ),),
               const SizedBox(height: 16.0),
               const Text(
                 'English Text:',
