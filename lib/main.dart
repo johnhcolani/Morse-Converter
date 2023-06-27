@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:morse_code_app/splash_page.dart';
+import 'package:sizer/sizer.dart';
 
 import 'morse_entity.dart';
 
@@ -12,12 +13,14 @@ class MyMorseCodeApp extends StatelessWidget {
 
     @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return Sizer(
+        builder: (context, orientation, deviceType) {
+      return  const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Morse Code Converter',
 
-        home: SplashScreen(),
-      );
+        home: SplashView(),
+      );});
 
   }
 }
